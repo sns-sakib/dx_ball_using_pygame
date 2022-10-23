@@ -1,7 +1,6 @@
 #Import the pygame library and initialise the game engine
 import pygame
 from components.bullet import Bullet
-#Let's import the Paddle Class & the Ball Class
 from components.paddle import Paddle
 from components.ball import Ball
 from components.brick import Brick
@@ -17,8 +16,7 @@ cfg = Config()
 
 if __name__ == "__main__":
     pygame.init()
-   
-   
+    
     screen_size = cfg.SIZE
      # Open a new window
     screen = pygame.display.set_mode(screen_size)

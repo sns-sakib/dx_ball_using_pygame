@@ -47,7 +47,7 @@ def stage1(screen):
     """
     FPS = 5
     screen_scaler = cfg.SCREEN_SCALER
-    print(screen_scaler)
+    # print(screen_scaler)
     button1 = Button((300*screen_scaler[0], 100*screen_scaler[1]), (200*screen_scaler[0], 100*screen_scaler[1]), (0, 137, 210), "Start Game")
     button2 = Button((300*screen_scaler[0], 300*screen_scaler[1]), (200*screen_scaler[0], 100*screen_scaler[1]), (0, 137, 210), "EXIT")
 
@@ -135,7 +135,7 @@ def main_stage(screen):
     all_bricks = build_bricks(color_list, 30)
     # print(len(all_bricks))
     number_of_special_bricks = 2
-
+    special_bricks = []
     all_bricks, special_bricks = make_special_bricks(all_bricks, number_of_special_bricks)
 
     # Add the paddle and the ball to the list of sprites
@@ -157,6 +157,8 @@ def main_stage(screen):
         for event in pygame.event.get(): # User did something
             if event.type == pygame.QUIT: # If user clicked close
                 carryOn = False # Flag that we are done so we exit this loop
+                pygame.quit()
+                exit()
                 
 
         #Moving the paddle when the use uses the arrow keys
@@ -202,7 +204,7 @@ def main_stage(screen):
                 ball.velocity[0] = -ball.velocity[0]
 
             # if ball drops    
-            if ball.rect.y>590*screen_scaler[1]:
+            if ball.rect.y>560*screen_scaler[1]:
                 ball.velocity[1] = -ball.velocity[1]
                 lives -= 1
                 if lives == 0:
